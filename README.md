@@ -1,2 +1,3 @@
-# FutureTrade
-Space In Motion: FutureTrade
+# Space In Motion: FutureTrade
+
+This repository contains the source code, assets and executable binaries using the DOSBox-X emulator for my first commercially released software product. It is a economy simulation game for DOS, which had been mainly programmed in Turbo Pascal and artistically designed in Reflections/Monzoom. Except music and sound, which were produced by Marcus Franke, I made everything (code, art, logic, design) by myself in four years of development and private studies besides school, military service and university. In 2000 the game was released to the German, Austrian and Swiss retail market in a cardboard box including a CD-ROM by Kelly Media, which was a software publisher that does not exist anymore.
