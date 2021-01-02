@@ -1,0 +1,155 @@
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<title>Men&uuml;</title>
+		<csactions>
+			<csaction name="183BDEA4" class="Set Image URL" type="ONEVENT" val0="Story" val1="t_mstory.jpg">
+			<csaction name="184D0427" class="Goto Link" type="ONEVENT" val0="story.html" val1="Main">
+			<csaction name="186491C9" class="Set Image URL" type="ONEVENT" val0="Infos" val1="t_minfos.jpg">
+			<csaction name="186978510" class="Goto Link" type="ONEVENT" val0="infos.html" val1="Main">
+			<csaction name="1877B3F11" class="Set Image URL" type="ONEVENT" val0="Infos" val1="t_m_infos.jpg">
+			<csaction name="1883ADB12" class="Set Image URL" type="ONEVENT" val0="Story" val1="t_m_story.jpg">
+			<csaction name="1D21E4414" class="Set Image URL" type="ONEVENT" val0="Gameplay" val1="t_mgameplay.jpg">
+			<csaction name="1D266B215" class="Goto Link" type="ONEVENT" val0="gameplay.html" val1="Main">
+			<csaction name="1D29CF016" class="Set Image URL" type="ONEVENT" val0="Story" val1="t_m_story.jpg">
+			<csaction name="1D36AC817" class="Set Image URL" type="ONEVENT" val0="Infos" val1="t_m_infos.jpg">
+			<csaction name="1D4903218" class="Set Image URL" type="ONEVENT" val0="Gameplay" val1="t_m_gameplay.jpg">
+			<csaction name="1D4EF6420" class="Set Image URL" type="ONEVENT" val0="Gameplay" val1="t_m_gameplay.jpg">
+			<csaction name="1D5A91522" class="Set Image URL" type="ONEVENT" val0="Homepage" val1="t_mhomepage.jpg">
+			<csaction name="1D6F87824" class="Set Image URL" type="ONEVENT" val0="Story" val1="t_m_story.jpg">
+			<csaction name="1D71ACF25" class="Set Image URL" type="ONEVENT" val0="Infos" val1="t_m_infos.jpg">
+			<csaction name="1D741AA26" class="Set Image URL" type="ONEVENT" val0="Gameplay" val1="t_m_gameplay.jpg">
+			<csaction name="1D7B20927" class="Set Image URL" type="ONEVENT" val0="Homepage" val1="t_m_homepage.jpg">
+			<csaction name="1D8073F28" class="Set Image URL" type="ONEVENT" val0="Homepage" val1="t_m_homepage.jpg">
+			<csaction name="1D8324D29" class="Set Image URL" type="ONEVENT" val0="Homepage" val1="t_m_homepage.jpg">
+			<csaction name="3A73C22" class="Goto Link" type="ONEVENT" val0="links.html" val1="Main">
+		</csactions>
+		<csscriptdict>
+			<script><!--
+function CSClickReturn () {
+	var bAgent = window.navigator.userAgent; 
+	var bAppName = window.navigator.appName;
+	if ((bAppName.indexOf("Explorer") >= 0) && (bAgent.indexOf("Mozilla/3") >= 0) && (bAgent.indexOf("Mac") >= 0))
+		return true; // dont follow link
+	else return false; // dont follow link
+}
+CSStopExecution = false;
+
+function CSAction(array) { 
+	return CSAction2(CSAct, array);
+}
+function CSAction2(fct, array) { 
+	var result;
+	for (var i=0;i<array.length;i++) {
+		if(CSStopExecution) return false; 
+		var actArray = fct[array[i]];
+		if(actArray == null) return false; 
+		var tempArray = new Array;
+		for(var j=1;j<actArray.length;j++) {
+			if((actArray[j] != null) && (typeof(actArray[j]) == "object") && (actArray[j].length == 2)) {
+				if(actArray[j][0] == "VAR") {
+					tempArray[j] = CSStateArray[actArray[j][1]];
+				}
+				else {
+					if(actArray[j][0] == "ACT") {
+						tempArray[j] = CSAction(new Array(new String(actArray[j][1])));
+					}
+				else
+					tempArray[j] = actArray[j];
+				}
+			}
+			else
+				tempArray[j] = actArray[j];
+		}			
+		result = actArray[0](tempArray);
+	}
+	return result;
+}
+CSAct = new Object;
+CSAg = window.navigator.userAgent; CSBVers = parseInt(CSAg.charAt(CSAg.indexOf("/")+1),10);
+function IsIE() { return CSAg.indexOf("MSIE") > 0;}
+function CSIEStyl(s) { return document.all.tags("div")[s].style; }
+function CSNSStyl(s) { return CSFindElement(s,0); }
+function CSFindElement(n,ly) { if (CSBVers < 4) return document[n];
+	var curDoc = ly ? ly.document : document; var elem = curDoc[n];
+	if (!elem) { for (var i=0;i<curDoc.layers.length;i++) {
+		elem = CSFindElement(n,curDoc.layers[i]); if (elem) return elem; }}
+	return elem;
+}
+
+function CSSetImageURL(action) {
+	var img = null;
+	if (document.images) {
+		if (!IsIE()) img = CSFindElement(action[1],0);
+		else img = document.images[action[1]];
+		if (img) img.src = action[2];
+	}
+}
+function CSGotoLink(action) {
+	if (action[2].length) {
+		var hasFrame=false;
+		for(i=0;i<parent.frames.length;i++) { if (parent.frames[i].name==action[2]) { hasFrame=true; break;}}
+		if (hasFrame==true)
+			parent.frames[action[2]].location = action[1];
+		else
+			window.open (action[1],action[2],"");
+	}
+	else location = action[1];
+}
+
+// --></script>
+		</csscriptdict>
+		<csactiondict>
+			<script><!--
+CSAct[/*CMP*/ '183BDEA4'] = new Array(CSSetImageURL,/*CMP*/ 'Story',/*URL*/ 't_mstory.jpg');
+CSAct[/*CMP*/ '184D0427'] = new Array(CSGotoLink,/*URL*/ 'story.html','Main');
+CSAct[/*CMP*/ '186491C9'] = new Array(CSSetImageURL,/*CMP*/ 'Infos',/*URL*/ 't_minfos.jpg');
+CSAct[/*CMP*/ '186978510'] = new Array(CSGotoLink,/*URL*/ 'infos.html','Main');
+CSAct[/*CMP*/ '1877B3F11'] = new Array(CSSetImageURL,/*CMP*/ 'Infos',/*URL*/ 't_m_infos.jpg');
+CSAct[/*CMP*/ '1883ADB12'] = new Array(CSSetImageURL,/*CMP*/ 'Story',/*URL*/ 't_m_story.jpg');
+CSAct[/*CMP*/ '1D21E4414'] = new Array(CSSetImageURL,/*CMP*/ 'Gameplay',/*URL*/ 't_mgameplay.jpg');
+CSAct[/*CMP*/ '1D266B215'] = new Array(CSGotoLink,/*URL*/ 'gameplay.html','Main');
+CSAct[/*CMP*/ '1D29CF016'] = new Array(CSSetImageURL,/*CMP*/ 'Story',/*URL*/ 't_m_story.jpg');
+CSAct[/*CMP*/ '1D36AC817'] = new Array(CSSetImageURL,/*CMP*/ 'Infos',/*URL*/ 't_m_infos.jpg');
+CSAct[/*CMP*/ '1D4903218'] = new Array(CSSetImageURL,/*CMP*/ 'Gameplay',/*URL*/ 't_m_gameplay.jpg');
+CSAct[/*CMP*/ '1D4EF6420'] = new Array(CSSetImageURL,/*CMP*/ 'Gameplay',/*URL*/ 't_m_gameplay.jpg');
+CSAct[/*CMP*/ '1D5A91522'] = new Array(CSSetImageURL,/*CMP*/ 'Homepage',/*URL*/ 't_mhomepage.jpg');
+CSAct[/*CMP*/ '1D6F87824'] = new Array(CSSetImageURL,/*CMP*/ 'Story',/*URL*/ 't_m_story.jpg');
+CSAct[/*CMP*/ '1D71ACF25'] = new Array(CSSetImageURL,/*CMP*/ 'Infos',/*URL*/ 't_m_infos.jpg');
+CSAct[/*CMP*/ '1D741AA26'] = new Array(CSSetImageURL,/*CMP*/ 'Gameplay',/*URL*/ 't_m_gameplay.jpg');
+CSAct[/*CMP*/ '1D7B20927'] = new Array(CSSetImageURL,/*CMP*/ 'Homepage',/*URL*/ 't_m_homepage.jpg');
+CSAct[/*CMP*/ '1D8073F28'] = new Array(CSSetImageURL,/*CMP*/ 'Homepage',/*URL*/ 't_m_homepage.jpg');
+CSAct[/*CMP*/ '1D8324D29'] = new Array(CSSetImageURL,/*CMP*/ 'Homepage',/*URL*/ 't_m_homepage.jpg');
+CSAct[/*CMP*/ '3A73C22'] = new Array(CSGotoLink,/*URL*/ 'links.html','Main');
+
+// --></script>
+		</csactiondict>
+	</head>
+
+	<body bgcolor="white">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td background="t_backgroundl.jpg">&nbsp;</td>
+				<td width="640">
+					<table border="0" cellpadding="0" cellspacing="0" width="640">
+						<tr>
+							<td>
+								<center>
+									<img height="82" width="640" src="t_ft.jpg"></center>
+							</td>
+						</tr>
+						<tr>
+							<td><img height="14" width="96" src="t_m1.jpg"><a href="story.html" target="Main" csclick="183BDEA4,184D0427,1877B3F11,1D4903218,1D7B20927" onclick="CSAction(new Array(/*CMP*/'183BDEA4',/*CMP*/'184D0427',/*CMP*/'1877B3F11',/*CMP*/'1D4903218',/*CMP*/'1D7B20927'));return CSClickReturn();"><img height="14" width="50" src="t_m_story.jpg" border="0" name="Story" alt="Hintergrundgeschichte"></a><img height="14" width="60" src="t_m2.jpg"><a href="infos.html" target="Main" csclick="186491C9,186978510,1883ADB12,1D4EF6420,1D8073F28" onclick="CSAction(new Array(/*CMP*/'186491C9',/*CMP*/'186978510',/*CMP*/'1883ADB12',/*CMP*/'1D4EF6420',/*CMP*/'1D8073F28'));return CSClickReturn();"><img height="14" width="46" src="t_m_infos.jpg" border="0" name="Infos" alt="Informationen"></a><img height="14" width="62" src="t_m3.jpg"><a href="gameplay.html" target="Main" csclick="1D21E4414,1D266B215,1D29CF016,1D36AC817,1D8324D29" onclick="CSAction(new Array(/*CMP*/'1D21E4414',/*CMP*/'1D266B215',/*CMP*/'1D29CF016',/*CMP*/'1D36AC817',/*CMP*/'1D8324D29'));return CSClickReturn();"><img height="14" width="82" src="t_m_gameplay.jpg" border="0" name="Gameplay" alt="Spielerkl&auml;rung"></a><img height="14" width="60" src="t_m4.jpg"><a href="links.html" target="Main" csclick="1D5A91522,1D6F87824,1D71ACF25,1D741AA26,3A73C22" onclick="CSAction(new Array(/*CMP*/'1D5A91522',/*CMP*/'1D6F87824',/*CMP*/'1D71ACF25',/*CMP*/'1D741AA26',/*CMP*/'3A73C22'));return CSClickReturn();"><img height="14" width="84" src="t_m_homepage.jpg" border="0" name="Homepage" alt="Lightrock Entertainment im Internet"></a><img height="14" width="100" src="t_m5.jpg"></td>
+						</tr>
+						<tr>
+							<td><img height="24" width="640" src="t_line.jpg"></td>
+						</tr>
+					</table>
+				</td>
+				<td background="t_backgroundr.jpg">&nbsp;</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
