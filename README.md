@@ -1,4 +1,4 @@
-![alt text](documentation/FutureTrade_title_on_white.png "Logo Title Text 1")
+![Space In Motion: FutureTrade](documentation/FutureTrade_title_on_white.png "Space In Motion: FutureTrade")
 
 # Space In Motion: FutureTrade
 
@@ -8,7 +8,9 @@ This repository contains the source code, assets and executable binaries using t
 
 Because the game was released in German speaking territories only the binaries and the manual are not available in another language up to now. Even most of the code comments are German while most of the function names are English.
 
-**[German Manual](manual/German/index.html)**
+**[German Manual](https://lightrocker.lightrock.biz/FutureTrade/manual/de-de/)** ([GitHub folder](./manual/German/index.html))
+
+![Capital](documentation/Capital.jpg "Capital")
 
 ## History
 
@@ -29,3 +31,5 @@ The project occupied a large part of my adolescence and is the foundation of pro
 	- procedural generated maps (levels)
 	
 One feature that could not be transferred into this repository is CD music. First DOSBox-X is not able to mount the image of the original CD-ROM and on the other hand I am out of touch with the composer to ask for permission.
+
+![Truck model](documentation/Truck_model.jpg "Truck model with wireframe display")
