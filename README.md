@@ -32,4 +32,8 @@ The project occupied a large part of my adolescence and is the foundation of pro
 	
 One feature that could not be transferred into this repository is CD music. First DOSBox-X is not able to mount the image of the original CD-ROM and on the other hand I am out of touch with the composer to ask for permission.
 
+## Credits
+
+This project makes use of the [SMIX Programming Library by Ethan Brodsky](http://homepages.cae.wisc.edu/~brodskye/smix/smix.html).
+
 ![Truck model](documentation/Truck_model.jpg "Truck model with wireframe display")
